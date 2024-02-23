@@ -6,7 +6,7 @@ export const loginUser = (userData) => async (dispatch) => {
 
     const config = { headers: { "Content-Type": "application/json" } };
 
-    const { data } = await axios.post("/api/v1/login/user", userData, config);
+    const { data } = await axios.post("https://rabyea-group-backend.vercel.app/api/v1/login/user", userData, config);
     dispatch({ type: "LoginSuccess", payload: data.user });
   } catch (err) {
     dispatch({ type: "LoginFail", payload: err.response.data.message });
@@ -17,7 +17,7 @@ export const loadUser = () => async (dispatch) => {
   try {
     dispatch({ type: "LoadUserRequest" });
 
-    const { data } = await axios.get("/api/v1/user/me");
+    const { data } = await axios.get("https://rabyea-group-backend.vercel.app/api/v1/user/me");
     dispatch({ type: "LoadUserSuccess", payload: data.user });
   } catch (err) {
     dispatch({ type: "LoadUserFail", payload: err.response.data.message });
@@ -31,7 +31,7 @@ export const forgotPassword = (userData) => async (dispatch) => {
     const config = { headers: { "Content-Type": "multipart/form-data" } };
 
     const { data } = await axios.post(
-      "/api/v1/user/forgot/password",
+      "https://rabyea-group-backend.vercel.app/api/v1/user/forgot/password",
       userData,
       config
     );
@@ -72,7 +72,7 @@ export const logOut = () => async (dispatch) => {
     dispatch({ type: "LogoutRequest" });
     // const config = { headers: { "Content-Type": "multipart/form-data" } };
 
-    const { data } = await axios.get("/api/v1/logout");
+    const { data } = await axios.get("https://rabyea-group-backend.vercel.app/api/v1/logout");
     dispatch({ type: "LogoutSuccess", payload: data.message });
   } catch (error) {
     dispatch({
