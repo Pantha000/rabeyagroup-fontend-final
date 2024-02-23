@@ -6,7 +6,7 @@ export const meterialPdf = (userData, id) => async (dispatch) => {
     const config = { headers: { "Content-Type": "application/json" } };
 
     const { data } = await axios.post(
-      `/api/v1/meterial/genarate/pdf/${id}`,
+      `https://rabyea-group-backend.vercel.app/api/v1/meterial/genarate/pdf/${id}`,
       userData,
       config
     );
@@ -25,7 +25,7 @@ export const labourPdf = (userData, id) => async (dispatch) => {
     const config = { headers: { "Content-Type": "application/json" } };
 
     const { data } = await axios.post(
-      `/api/v1/labour/genarate/pdf/${id}`,
+      `https://rabyea-group-backend.vercel.app/api/v1/labour/genarate/pdf/${id}`,
       userData,
       config
     );
