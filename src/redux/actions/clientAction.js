@@ -6,7 +6,7 @@ export const createClientNotification = (userData) => async (dispatch) => {
     const config = { headers: { "Content-Type": "multipart/form-data" } };
 
     const { data } = await axios.post(
-      "/api/v1/create/client/notification",
+      "https://rabyea-group-backend.vercel.app/api/v1/create/client/notification",
       userData,
       config
     );
