@@ -4,7 +4,7 @@ export const getRevenue = (year) => async (dispatch) => {
   try {
     dispatch({ type: "RevenueRequest" });
 
-    const { data } = await axios.get(`/api/v1/total/revenue`);
+    const { data } = await axios.get(`https://rabyea-group-backend.vercel.app/api/v1/total/revenue`);
     dispatch({ type: "RevenueSuccess", payload: data });
   } catch (err) {
     dispatch({ type: "RevenueFail", payload: err.response.data.message });
@@ -15,7 +15,7 @@ export const getMonthlyRevenue = () => async (dispatch) => {
   try {
     dispatch({ type: "MontlyRevenueRequest" });
 
-    const { data } = await axios.get(`/api/v1/monthly/revenue`);
+    const { data } = await axios.get(`https://rabyea-group-backend.vercel.app/api/v1/monthly/revenue`);
     dispatch({ type: "MonthlyRevenueSuccess", payload: data });
   } catch (err) {
     dispatch({
@@ -28,7 +28,7 @@ export const getAllProject = (keyword) => async (dispatch) => {
   try {
     dispatch({ type: "AllProjectRequest" });
 
-    const { data } = await axios.get(`/api/v1/all/project?keyword=${keyword}`);
+    const { data } = await axios.get(`https://rabyea-group-backend.vercel.app/api/v1/all/project?keyword=${keyword}`);
     dispatch({ type: "AllProjectSuccess", payload: data.projects });
   } catch (err) {
     dispatch({ type: "AllProjectFail", payload: err.response.data.message });
@@ -41,7 +41,7 @@ export const adminDeposit = (userData) => async (dispatch) => {
     const config = { headers: { "Content-Type": "application/json" } };
 
     const { data } = await axios.post(
-      "/api/v1/create/deposit",
+      "https://rabyea-group-backend.vercel.app/api/v1/create/deposit",
       userData,
       config
     );
@@ -57,7 +57,7 @@ export const adminWithdraw = (userData) => async (dispatch) => {
     const config = { headers: { "Content-Type": "application/json" } };
 
     const { data } = await axios.post(
-      "/api/v1/create/withdraw",
+      "https://rabyea-group-backend.vercel.app/api/v1/create/withdraw",
       userData,
       config
     );
@@ -71,7 +71,7 @@ export const getAllDeposit = () => async (dispatch) => {
   try {
     dispatch({ type: "GetAdminDepositRequest" });
 
-    const { data } = await axios.get(`/api/v1/admin/deposit`);
+    const { data } = await axios.get(`https://rabyea-group-backend.vercel.app/api/v1/admin/deposit`);
     dispatch({ type: "GetAdminDepositSuccess", payload: data.adminDeposit });
   } catch (err) {
     dispatch({
@@ -85,7 +85,7 @@ export const getAllWithdraw = () => async (dispatch) => {
   try {
     dispatch({ type: "GetAdminWithdrawRequest" });
 
-    const { data } = await axios.get(`/api/v1/admin/withdraw`);
+    const { data } = await axios.get(`https://rabyea-group-backend.vercel.app/api/v1/admin/withdraw`);
     dispatch({ type: "GetAdminWithdrawSuccess", payload: data.adminWithdraw });
   } catch (err) {
     dispatch({
@@ -99,7 +99,7 @@ export const deleteDeposit = (id) => async (dispatch) => {
   try {
     dispatch({ type: "DeleteDepositRequest" });
 
-    const { data } = await axios.delete(`/api/v1/delete/deposit/${id}`);
+    const { data } = await axios.delete(`https://rabyea-group-backend.vercel.app/api/v1/delete/deposit/${id}`);
     dispatch({ type: "DeleteDepositSuccess", payload: data });
   } catch (err) {
     dispatch({
@@ -112,7 +112,7 @@ export const deleteWithdraw = (id) => async (dispatch) => {
   try {
     dispatch({ type: "DeleteWithdrawRequest" });
 
-    const { data } = await axios.delete(`/api/v1/delete/withdraw/${id}`);
+    const { data } = await axios.delete(`https://rabyea-group-backend.vercel.app/api/v1/delete/withdraw/${id}`);
     dispatch({ type: "DeleteWithdrawSuccess", payload: data });
   } catch (err) {
     dispatch({
@@ -126,7 +126,7 @@ export const getTopCustomer = () => async (dispatch) => {
   try {
     dispatch({ type: "TopCustomerRequest" });
 
-    const { data } = await axios.get(`/api/v1/top/customer`);
+    const { data } = await axios.get(`https://rabyea-group-backend.vercel.app/api/v1/top/customer`);
     dispatch({ type: "TopCustomerSuccess", payload: data.topCustomer });
   } catch (err) {
     dispatch({
@@ -139,7 +139,7 @@ export const getUnpaidCustomer = () => async (dispatch) => {
   try {
     dispatch({ type: "TopUnpaidCustomerRequest" });
 
-    const { data } = await axios.get(`/api/v1/top/unpaid/customer`);
+    const { data } = await axios.get(`https://rabyea-group-backend.vercel.app/api/v1/top/unpaid/customer`);
     dispatch({
       type: "TopUnpaidCustomerSuccess",
       payload: data.topUnpaidCustomer,
@@ -156,7 +156,7 @@ export const getTotalDeposit = () => async (dispatch) => {
   try {
     dispatch({ type: "TotalDepositRequest" });
 
-    const { data } = await axios.get(`/api/v1/total/deposit`);
+    const { data } = await axios.get(`https://rabyea-group-backend.vercel.app/api/v1/total/deposit`);
     dispatch({
       type: "TotalDepositSuccess",
       payload: data,
@@ -172,7 +172,7 @@ export const getTotalWithdraw = () => async (dispatch) => {
   try {
     dispatch({ type: "TotalWithdrawRequest" });
 
-    const { data } = await axios.get(`/api/v1/total/withdraw`);
+    const { data } = await axios.get(`https://rabyea-group-backend.vercel.app/api/v1/total/withdraw`);
     dispatch({
       type: "TotalWithdrawSuccess",
       payload: data,
@@ -193,7 +193,7 @@ export const updatePasswordAdmin = (userData) => async (dispatch) => {
     const config = { headers: { "Content-Type": "application/json" } };
 
     const { data } = await axios.put(
-      `/api/v1/admin/password/update`,
+      `https://rabyea-group-backend.vercel.app/api/v1/admin/password/update`,
       userData,
       config
     );
@@ -215,7 +215,7 @@ export const updateProfileAdmin = (userData) => async (dispatch) => {
     const config = { headers: { "Content-Type": "application/json" } };
 
     const { data } = await axios.put(
-      `/api/v1/admin/profile/update`,
+      `https://rabyea-group-backend.vercel.app/api/v1/admin/profile/update`,
       userData,
       config
     );
@@ -237,7 +237,7 @@ export const updateAvatarAdmin = (userData) => async (dispatch) => {
     const config = { headers: { "Content-Type": "application/json" } };
 
     const { data } = await axios.put(
-      `/api/v1/admin/avatar/update`,
+      `https://rabyea-group-backend.vercel.app/api/v1/admin/avatar/update`,
       userData,
       config
     );
