@@ -4,7 +4,7 @@ export const getManagerProject = () => async (dispatch) => {
   try {
     dispatch({ type: "ProjectRequest" });
 
-    const { data } = await axios.get("/api/v1/manager/project/data");
+    const { data } = await axios.get("https://rabyea-group-backend.vercel.app/api/v1/manager/project/data");
     dispatch({ type: "ProjectSuccess", payload: data.project });
   } catch (err) {
     dispatch({ type: "ProjectFail", payload: err.response.data.message });
@@ -14,7 +14,7 @@ export const getClientProject = () => async (dispatch) => {
   try {
     dispatch({ type: "ProjectRequest" });
 
-    const { data } = await axios.get("/api/v1/client/project/data");
+    const { data } = await axios.get("https://rabyea-group-backend.vercel.app/api/v1/client/project/data");
     dispatch({ type: "ProjectSuccess", payload: data.project });
   } catch (err) {
     dispatch({ type: "ProjectFail", payload: err.response.data.message });
@@ -26,7 +26,7 @@ export const createExpenses = (userData) => async (dispatch) => {
     const config = { headers: { "Content-Type": "application/json" } };
 
     const { data } = await axios.post(
-      "/api/v1/project/expenses",
+      "https://rabyea-group-backend.vercel.app/api/v1/project/expenses",
       userData,
       config
     );
@@ -40,7 +40,7 @@ export const deleteExpenses = (id) => async (dispatch) => {
     dispatch({ type: "DeleteExpensesRequest" });
 
     const { data } = await axios.delete(
-      `/api/v1/delete/project/expenses/${id}`
+      `https://rabyea-group-backend.vercel.app/api/v1/delete/project/expenses/${id}`
     );
     dispatch({ type: "DeleteExpensesSuccess", payload: data });
     // console.log(userData);
@@ -57,7 +57,7 @@ export const createLabourExpenses = (userData) => async (dispatch) => {
     const config = { headers: { "Content-Type": "application/json" } };
 
     const { data } = await axios.post(
-      "/api/v1/labour/expenses",
+      "https://rabyea-group-backend.vercel.app/api/v1/labour/expenses",
       userData,
       config
     );
@@ -70,7 +70,7 @@ export const deleteLabourExpenses = (id) => async (dispatch) => {
   try {
     dispatch({ type: "DeleteLabourRequest" });
 
-    const { data } = await axios.delete(`/api/v1/delete/labour/expenses/${id}`);
+    const { data } = await axios.delete(`https://rabyea-group-backend.vercel.app/api/v1/delete/labour/expenses/${id}`);
     dispatch({ type: "DeleteLabourSuccess", payload: data });
     // console.log(userData);
   } catch (err) {
@@ -86,7 +86,7 @@ export const createDeposit = (userData) => async (dispatch) => {
     const config = { headers: { "Content-Type": "application/json" } };
 
     const { data } = await axios.post(
-      "/api/v1/project/deposit",
+      "https://rabyea-group-backend.vercel.app/api/v1/project/deposit",
       userData,
       config
     );
@@ -99,7 +99,7 @@ export const deleteDeposit = (id) => async (dispatch) => {
   try {
     dispatch({ type: "DeleteDepositRequest" });
 
-    const { data } = await axios.delete(`/api/v1/delete/project/deposit/${id}`);
+    const { data } = await axios.delete(`https://rabyea-group-backend.vercel.app/api/v1/delete/project/deposit/${id}`);
     dispatch({ type: "DeleteDepositSuccess", payload: data });
     // console.log(userData);
   } catch (err) {
@@ -116,7 +116,7 @@ export const createWithdraw = (userData) => async (dispatch) => {
     const config = { headers: { "Content-Type": "application/json" } };
 
     const { data } = await axios.post(
-      "/api/v1/project/withdraw",
+      "https://rabyea-group-backend.vercel.app/api/v1/project/withdraw",
       userData,
       config
     );
@@ -130,7 +130,7 @@ export const deleteWithdraw = (id) => async (dispatch) => {
     dispatch({ type: "DeleteWithdrawRequest" });
 
     const { data } = await axios.delete(
-      `/api/v1/delete/project/withdraw/${id}`
+      `https://rabyea-group-backend.vercel.app/api/v1/delete/project/withdraw/${id}`
     );
     dispatch({ type: "DeleteWithdrawSuccess", payload: data });
     // console.log(userData);
